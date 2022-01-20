@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
-// import App from './App';
+import App from './App';
+
+
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -10,4 +12,4 @@ import ReactDOM from 'react-dom';
 //   document.getElementById('root')
 // );
 
-ReactDOM.render(<div>Privet </div>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
