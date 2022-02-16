@@ -1,11 +1,10 @@
 import React from 'react';
 import ListItem from './ListItem';
 
-const ToDoList = ()=>{
+const ToDoList = (props)=>{
     return (
     <ul>
-        <li> <ListItem/> </li>
-        <li> <ListItem/> </li>
+        {props.itemList.map((item, index) => <li key={index}> <ListItem taskName={item}/></li>)}
     </ul>
     )
 };

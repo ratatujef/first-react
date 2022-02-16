@@ -1,5 +1,6 @@
 import React from 'react';
 
-const ListItem = ()=> <span>Item</span>;
+const ListItem = (props)=> {
+ return  <div> <span>{props.taskName}</span> </div>};
 
 export default ListItem;

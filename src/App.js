@@ -5,11 +5,12 @@ import TodoList from './components/TodoList';
 import SearchPanel from './components/SearchPanel';
 
 const App=()=>{
+    const list = ['first item', 'second item', 'third item'];
     return (
-        <div>
+        <div className='container'>
             <AppHeader/>
             <SearchPanel/>
-            <TodoList/>
+            <TodoList itemList={list}/>
         </div>
     )
 }
