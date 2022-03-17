@@ -1,0 +1,14 @@
+.header-block{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+.header-block h2{
+    margin-bottom: 0;
+}
+.header-block .info{
+    font-size: 1.5rem;
+    color: #666;
+}
