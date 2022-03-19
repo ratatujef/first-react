@@ -1,7 +1,7 @@
 import React from 'react';
-import UiInput from './UiInput';
-import Filter from './Filter.js';
-import '../styles/SearchPanel.css';
+import UiInput from '../UiInput/UiInput.js';
+import Filter from '../Filter/Filter.js';
+import './SearchPanel.css';
 
 const SearchPanel = ()=>{
     const placeHolderText = 'Type here to searh';

@@ -1,6 +1,6 @@
 import React from 'react';
-import ListItem from './ListItem';
-import '../styles/TodoList.css';
+import ListItem from '../ListItem/ListItem.js';
+import './TodoList.css';
 
 const ToDoList = (props)=>{
     const {removeHandler, itemList }=props;

@@ -1,10 +1,11 @@
 import React from 'react';
 
-import AppHeader from './components/Header';
-import TodoList from './components/TodoList';
-import SearchPanel from './components/SearchPanel';
+import AppHeader from '../Header/Header.js';
+import TodoList from '../TodoList/TodoList.js';
+import SearchPanel from '../SearchPanel/SearchPanel.js';
+import AddItemForm from '../AddItemForm/AddItemForm.js';
 
-import './styles/App.css';
+import './App.css';
 
 export default class App extends React.Component{
     state = {
@@ -36,6 +37,7 @@ export default class App extends React.Component{
             <AppHeader title={this.header}/>
             <SearchPanel/>
             <TodoList removeHandler={this.updatedData} itemList={this.state.data}/>
+            <AddItemForm/>
         </div> 
         )
     }
