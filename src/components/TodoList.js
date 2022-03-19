@@ -1,16 +1,26 @@
 import React from 'react';
 import ListItem from './ListItem';
-import '../styles/todo.css';
+import '../styles/TodoList.css';
+
 const ToDoList = (props)=>{
-    return (
-    <ul className='list-group todo-list'>
-        {props.itemList.map(
-            (props) => 
-            <li className="list-group-item" key={props.id}> 
-                <ListItem  important={props.important} taskName={props.title}/>
+    const {removeHandler, itemList }=props;
+
+    const elems = itemList.map((el) => {
+        const{id, ...elProps} = el;
+        return(
+            <li className="list-group-item" key={id}> 
+                <ListItem  
+                    removeHandler={()=>removeHandler(id)} 
+                    { ...elProps }
+                    // important={important} 
+                    // taskName={title} 
+                    />
             </li>
         )
-        }
+    })
+    return (
+    <ul className='list-group todo-list'>
+        { elems }
     </ul>
     )
 };

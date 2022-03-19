@@ -1,0 +1,15 @@
+.todo-list-item--important{
+    font-weight: bold;
+    color: steelblue;
+}
+.todo-list-item span{
+    padding-right: 2rem;
+    cursor: pointer;
+}
+.todo-list-item--done{
+    text-decoration: line-through;
+}
+.todo-list-item .btn{
+    font-size: 1rem;
+    box-shadow: none;
+}
