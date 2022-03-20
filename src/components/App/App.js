@@ -18,15 +18,18 @@ export default class App extends React.Component{
             addItem('third item'),
             addItem('and one more'),
         ],
-        filter: 'all'
+        filter: 'all',
+        searchValue:''
     
     }
     filterItems(){
         switch (this.state.filter){
             case 'done':
-                return this.state.data.filter(el=>el.done);
+                return this.state.data.filter(el=>el.done && el.title.includes(this.state.searchValue));
             case 'active':
-                return this.state.data.filter(el=> !el.done);
+                return this.state.data.filter(el=> !el.done && el.title.includes(this.state.searchValue));
+            case 'all':
+                return this.state.data.filter(el=> el.title.includes(this.state.searchValue));
             default: 
                 return this.state.data;  
         }
@@ -50,9 +53,11 @@ export default class App extends React.Component{
         })
     }
     updateFilter=(filter)=>{
-        this.setState(({filter:filter}))
+        this.setState({filter:filter})
     }
-
+    searchItem=(value)=>{
+        this.setState({searchValue:value})
+    }
     render(){
         const { data } = this.state;
         const headerData = {
@@ -64,7 +69,10 @@ export default class App extends React.Component{
         return(
             <div className='container'>
                 <AppHeader title={'My own to do list'} data={headerData}/>
-                <SearchPanel activeFilter={this.state.filter} updateFilter={this.updateFilter}/>
+                <SearchPanel 
+                    activeFilter={this.state.filter} 
+                    updateFilter={this.updateFilter} 
+                    serchItem={this.searchItem}/>
                 <TodoList 
                     removeHandler={this.removeItem} 
                     itemList={filteredItems}
