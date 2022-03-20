@@ -3,8 +3,9 @@
     color: steelblue;
 }
 .todo-list-item span{
-    padding-right: 2rem;
+    margin-right: 2rem;
     cursor: pointer;
+    width: 100%;
 }
 .todo-list-item--done{
     text-decoration: line-through;

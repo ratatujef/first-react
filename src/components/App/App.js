@@ -6,38 +6,71 @@ import SearchPanel from '../SearchPanel/SearchPanel.js';
 import AddItemForm from '../AddItemForm/AddItemForm.js';
 
 import './App.css';
-
+let idNum=10;
+const addItem=(text)=>{
+    return {title: text, id:idNum++, important:false, done:false } 
+    }
 export default class App extends React.Component{
     state = {
         data:[
-        {id:1,title:'first item', important: false},
-        {id:2,title:'second item', important:true},
-        {id:3, title:'third item',important:false},
-        {id:4,title: 'and one more', important:false}
+            addItem('first item'),
+            addItem('second item'),
+            addItem('third item'),
+            addItem('and one more'),
         ],
-        header: 'My own Header'
+        filter: 'active'
+    
     }
-    updatedData=(id)=>{
+    filterItems(){
+        switch (this.state.filter){
+            case 'done':
+                return this.state.data.filter(el=>el.done);
+            case 'active':
+                return this.state.data.filter(el=> !el.done);
+            default: 
+                return this.state.data;  
+        }
+    }
+    removeItem=(id)=>{
         this.setState(({data}) => {
              return {data: data.filter(el=> el.id !== id)};
             });
-        
-        // this.setState(({data})=>{
-        //     const ind = data.findIndex(el=> el.id === id);
-        //     data.splice(ind, 1);
-        //     return { data: data}
-        // })
     }
-    consoleID=(id)=>{
-        console.log('from app ',id)
+    handleItem=(id, type)=>{
+     this.setState(({data})=>{
+         const ind= data.findIndex(el=>el.id === id);
+         const elToChange = {...data[ind]};
+         elToChange[type] = !data[ind][type];
+        return {data: [...data.slice(0, ind), elToChange, ...data.slice(ind+1)]}
+     })
     }
+    addNewItem=(text="new One")=>{
+        this.setState(({data})=>{
+            return {data:[...data, addItem(text)]};
+        })
+    }
+    updateFilter=(filter)=>{
+        this.setState(({filter:filter}))
+    }
+
     render(){
+        const { data } = this.state;
+        const headerData = {
+            all: data.length,
+            done: data.filter(item=>item.done),
+        }
+        const filteredItems = this.filterItems();
+
         return(
             <div className='container'>
-            <AppHeader title={this.header}/>
-            <SearchPanel/>
-            <TodoList removeHandler={this.updatedData} itemList={this.state.data}/>
-            <AddItemForm/>
+            <AppHeader title={'My own to do list'} data={headerData}/>
+            <SearchPanel activeFilter={this.state.filter} updateFilter={this.updateFilter}/>
+            <TodoList 
+                removeHandler={this.removeItem} 
+                itemList={filteredItems}
+                itemHandler={this.handleItem}
+            />
+            <AddItemForm addNewItem={(text)=>this.addNewItem(text)}/>
         </div> 
         )
     }

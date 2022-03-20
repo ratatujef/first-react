@@ -1,18 +1,19 @@
 import React from 'react';
+import UiButton from '../UIButton/UiButton.js';
 
-const Filter = ()=>{
+
+const Filter = ({activeFilter, updateFilter})=>{
+const filters = ['all', 'active', 'done'];
+const btns = filters.map((filter)=>{
+
+    const className = activeFilter===filter ? 'btn-info':'btn-outline-secondary';
+    return(
+        <UiButton title={filter} key={filter} className={className} updateFilter={updateFilter}/>
+    )
+})
     return (
         <div className='brn-group'>
-            <button type='button' className='btn me-2 btn-info'>
-                All
-            </button>
-            <button type='button' className='btn me-2 btn-outline-secondary'>
-                Active
-            </button>
-            <button type='button' className='btn  btn-outline-secondary'>
-                Done
-            </button>
-            
+            { btns }
         </div>
     )
 }
