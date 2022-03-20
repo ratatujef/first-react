@@ -23,13 +23,14 @@ export default class App extends React.Component{
     
     }
     filterItems(){
+        const serchedItems = this.state.data.filter(el=>el.title.includes(this.state.searchValue));
         switch (this.state.filter){
             case 'done':
-                return this.state.data.filter(el=>el.done && el.title.includes(this.state.searchValue));
+                return serchedItems.filter(el=>el.done);
             case 'active':
-                return this.state.data.filter(el=> !el.done && el.title.includes(this.state.searchValue));
+                return serchedItems.filter(el=> !el.done);
             case 'all':
-                return this.state.data.filter(el=> el.title.includes(this.state.searchValue));
+                return serchedItems
             default: 
                 return this.state.data;  
         }
