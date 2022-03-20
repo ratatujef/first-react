@@ -63,15 +63,15 @@ export default class App extends React.Component{
 
         return(
             <div className='container'>
-            <AppHeader title={'My own to do list'} data={headerData}/>
-            <SearchPanel activeFilter={this.state.filter} updateFilter={this.updateFilter}/>
-            <TodoList 
-                removeHandler={this.removeItem} 
-                itemList={filteredItems}
-                itemHandler={this.handleItem}
-            />
-            <AddItemForm addNewItem={(text)=>this.addNewItem(text)}/>
-        </div> 
+                <AppHeader title={'My own to do list'} data={headerData}/>
+                <SearchPanel activeFilter={this.state.filter} updateFilter={this.updateFilter}/>
+                <TodoList 
+                    removeHandler={this.removeItem} 
+                    itemList={filteredItems}
+                    itemHandler={this.handleItem}
+                />
+                <AddItemForm addNewItem={(text)=>this.addNewItem(text)}/>
+            </div> 
         )
     }
 }
