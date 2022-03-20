@@ -18,7 +18,7 @@ export default class App extends React.Component{
             addItem('third item'),
             addItem('and one more'),
         ],
-        filter: 'active'
+        filter: 'all'
     
     }
     filterItems(){

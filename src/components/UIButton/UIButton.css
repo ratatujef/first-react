@@ -1,0 +1,7 @@
+button.btn-info {
+    color: #fff;
+}
+button.btn{
+    box-shadow:none !important;
+    text-transform: capitalize;
+}

@@ -7,7 +7,7 @@ export default class AddItemForm extends Component{
     }
     handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(this.state.inputValue);
+        if (this.state.inputValue==='') return;
         this.props.addNewItem(this.state.inputValue)
         this.setState({inputValue: ''})
     }
@@ -18,7 +18,7 @@ export default class AddItemForm extends Component{
                     <UiInput value={this.state.inputValue} inputHandler={(e)=>this.setState({inputValue:e})} />
                     <button type="submit" 
                         className='btn btn-outline-secondary'
-                    > Add </button>
+                    > add </button>
                 </div>
             </form>
         )
