@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import UiButton from '../UIButton/UiButton.js';
 
@@ -8,7 +9,11 @@ const Filter = ({activeFilter, updateFilter})=>{
 
 		const className = activeFilter===filter ? 'btn-info':'btn-outline-secondary';
 		return (
-			<UiButton title={filter} key={filter} className={className} updateFilter={updateFilter}/>
+			<UiButton 
+				title={filter} 
+				key={filter} 
+				className={className} 
+				updateFilter={updateFilter}/>
 		);
 	});
 	return (
@@ -16,9 +21,5 @@ const Filter = ({activeFilter, updateFilter})=>{
 			{ btns }
 		</div>
 	);
-};
-Filter.propTypes={
-	activeFilter: propTypes.function.isReguired,
-	updateFilter: propTypes.function.isReguired
 };
 export default Filter;

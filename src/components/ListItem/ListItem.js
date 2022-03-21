@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import './ListItem.css';
 class ListItem extends Component {
-	propTypes=[Object, String]; 
 	render() {
 		const {removeHandler, itemHandler, title, done, important} = this.props;
 		const importantClass = important ? 'todo-list-item--important':'';
@@ -13,7 +12,8 @@ class ListItem extends Component {
 					{title}
 				</span> 
 				<div className='btn-group'>
-					<button type="button" className='btn btn-outline-danger btn-sm' onClick={removeHandler}>
+					<button type="button" className='btn btn-outline-danger btn-sm' 
+						onClick={removeHandler}>
 						<i className="bi bi-trash"/>
 					</button>
 					<button type="button" className='btn btn-outline-success btn-sm' onClick={()=>itemHandler('important')}>

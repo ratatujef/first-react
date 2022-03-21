@@ -5,10 +5,6 @@ export default class AddItemForm extends Component {
 	state={
 		inputValue:'',
 	};
-	propTypes={
-		addNewItem: propTypes.function.isReguired
-	};
-    
 	handleSubmit=(e)=>{
 		e.preventDefault();
 		if (this.state.inputValue==='') return;
@@ -19,7 +15,8 @@ export default class AddItemForm extends Component {
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<div className="d-flex mt-3">
-					<UiInput value={this.state.inputValue} inputHandler={(e)=>this.setState({inputValue:e})} />
+					<UiInput value={this.state.inputValue} 
+						inputHandler={(e)=>this.setState({inputValue:e})} />
 					<button type="submit" 
 						className='btn btn-outline-secondary'
 					> add </button>

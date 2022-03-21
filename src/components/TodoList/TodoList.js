@@ -23,5 +23,4 @@ const ToDoList = (props)=>{
 		</ul>
 	);
 };
-ToDoList.propTypes=[Any]; 
 export default ToDoList;

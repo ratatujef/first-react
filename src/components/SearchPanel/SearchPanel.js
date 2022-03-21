@@ -7,7 +7,6 @@ export default class SearchPanel extends Component {
 	state = {
 		inputValue:''
 	};
-	propTypes=[Any]; 
 	inputHandler=(value)=>{
 		this.setState({inputValue: value});
 		this.props.serchItem(value);

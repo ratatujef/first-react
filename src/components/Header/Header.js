@@ -10,5 +10,4 @@ const Header = (props)=>{
 			<div className='info'> {data.all - done } more to do, {done} done</div>
 		</div>);
 };
-Header.propTypes=[Object, String]; 
 export default Header;
